@@ -13,3 +13,13 @@ func _enable_collision():
 
 
 
+
+
+func _on_area_2d_body_entered(body):
+	_disable_collision()
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_exited(body):
+	_enable_collision()
+	pass # Replace with function body.

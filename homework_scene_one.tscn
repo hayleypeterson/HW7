@@ -42,3 +42,5 @@ text = "HINT:
 You'll need to copy and paste a function in the rotate_for_HW_scene_one.gd file, but first you'll need to do something else (NOT in the code)
 
 "
+
+[connection signal="pressed" from="Button" to="Sonic-transparent" method="_on_button_pressed"]

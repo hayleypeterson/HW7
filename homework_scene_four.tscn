@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ljpkdmnextkb"]
+[gd_scene load_steps=12 format=3 uid="uid://ljpkdmnextkb"]
 
 [ext_resource type="Texture2D" uid="uid://bcj18f1u388bl" path="res://Art/TileMap_SF/tileset_sf.png" id="2_ng7a1"]
 [ext_resource type="Script" path="res://Scripts/Scripts Only for Homework Exercises/ShowHide_HW_four.gd" id="2_wvvwv"]
@@ -5556,6 +5556,8 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4w6ir"]
 size = Vector2(64, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdkon"]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="OpenDoorButton" type="Button" parent="."]
@@ -5628,3 +5630,24 @@ theme_override_colors/default_color = Color(0, 0.941176, 0.780392, 1)
 text = "HINT:
 
 You can copy from demo_scene_class.tscn if you get stuck, but try to do it on your own!"
+
+[node name="CloseDoorButton" type="Button" parent="."]
+offset_left = 31.0
+offset_right = 208.0
+offset_bottom = 84.0
+text = "Close Door"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(736, 137)
+scale = Vector2(1.35744, 1.0607)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(2.82727, 6.2304)
+shape = SubResource("RectangleShape2D_hdkon")
+
+[connection signal="pressed" from="OpenDoorButton" to="ForegroundTilemap" method="_on_open_door_button_pressed"]
+[connection signal="pressed" from="CloseDoorButton" to="ForegroundTilemap" method="_on_close_door_button_pressed"]
+[connection signal="body_entered" from="Area2D" to="ForegroundTilemap" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="StaticBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="ForegroundTilemap" method="_on_area_2d_body_exited"]
+[connection signal="body_exited" from="Area2D" to="StaticBody2D" method="_on_area_2d_body_exited"]
